@@ -33,7 +33,9 @@ namespace DotNetNinja.Core
             using (var stream = File.OpenRead(SaveGameFileName))
             {
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 var savedGameState = new GameState((SaveGameData)binaryFormatter.Deserialize(stream));
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
                 return savedGameState;
             }
         }
@@ -133,7 +135,9 @@ namespace DotNetNinja.Core
             using (var stream = File.OpenWrite(SaveGameFileName))
             {
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
                 binaryFormatter.Serialize(stream, savegame);
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
             }
         }
 
